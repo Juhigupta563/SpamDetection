@@ -16,6 +16,10 @@ vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
 app = Flask(__name__)
 
+@app.route("/")
+def home():
+    return "<h1>Welcome to the Spam Detection App!</h1><p>Use the `/predict` endpoint to test messages.</p>"
+
 lemmatizer = WordNetLemmatizer()
 
 def preprocess_text(text):
