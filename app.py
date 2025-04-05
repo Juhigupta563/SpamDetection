@@ -6,9 +6,9 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-nltk.download("punkt")
-nltk.download("stopwords")
-nltk.download("wordnet")
+import os
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
+
 
 
 app = Flask(__name__)
