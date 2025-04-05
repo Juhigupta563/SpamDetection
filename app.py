@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import pickle
+
 import joblib
 import nltk
 from nltk.tokenize import word_tokenize
@@ -11,12 +11,11 @@ nltk.download("punkt")
 nltk.download("stopwords")
 nltk.download("wordnet")
 
-# Load Model & Vectorizer
-model = pickle.load(open("model.pkl", "rb"))
-vectorizer = pickle.load(open("vectorizer(1).pkl", "rb"))
 
 app = Flask(__name__)
 model = joblib.load('model.pkl')
+vectorizer = joblib.load("vectorizer(1).pkl")
+
 
 @app.route("/")
 def home():
