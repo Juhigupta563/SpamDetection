@@ -31,13 +31,23 @@ def preprocess_text(text):
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.get_json()
-    message = data.get("message", "")
+    if request.is_json:
+        data = request.get_json()
+        message = data.get("message", "")
+        ajax = True
+    else:
+        message = request.form.get("message", "")
+        ajax = False
+
     cleaned_message = preprocess_text(message)
     transformed_message = vectorizer.transform([cleaned_message])
     prediction = model.predict(transformed_message)[0]
-    result = "Spam" if prediction == 1 else "Not Spam"
-    return jsonify({"prediction": result})
+    result = "SPAM 🚫" if prediction == 1 else "Not Spam ✅"
+
+    if ajax:
+        return jsonify({"prediction": result})
+    else:
+        return render_template("form.html", prediction=result)
 
 if __name__ == "__main__":
     app.run(debug=True)
