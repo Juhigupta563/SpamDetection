@@ -14,7 +14,7 @@ nltk.download("wordnet")
 
 app = Flask(__name__)
 model = joblib.load('model.pkl')
-vectorizer = joblib.load("vectorizer(1).pkl")
+vectorizer = joblib.load("vectorizer.pkl")
 
 
 @app.route("/")
