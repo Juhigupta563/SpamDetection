@@ -15,10 +15,11 @@ model = pickle.load(open("spam_model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
 app = Flask(__name__)
+model = joblib.load('model.pkl')
 
 @app.route("/")
 def home():
-    return "<h1>Welcome to the Spam Detection App!</h1><p>Use the `/predict` endpoint to test messages.</p>"
+   return render_template('form.html')
 
 lemmatizer = WordNetLemmatizer()
 
