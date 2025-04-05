@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import pickle
+import joblib
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
