@@ -12,8 +12,8 @@ nltk.download("stopwords")
 nltk.download("wordnet")
 
 # Load Model & Vectorizer
-model = pickle.load(open("spam_model.pkl", "rb"))
-vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+model = pickle.load(open("model.pkl", "rb"))
+vectorizer = pickle.load(open("vectorizer(1).pkl", "rb"))
 
 app = Flask(__name__)
 model = joblib.load('model.pkl')
