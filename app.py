@@ -1,5 +1,4 @@
-from flask import Flask, request, jsonify
-
+from flask import Flask, request , jsonify, render_template
 import joblib
 import nltk
 from nltk.tokenize import word_tokenize
