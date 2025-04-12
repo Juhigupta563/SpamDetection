@@ -1,6 +1,7 @@
 from flask import Flask, request , jsonify, render_template
 import joblib
 import nltk
+nltk.data.path.append('./nltk_data')
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
