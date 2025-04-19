@@ -1,14 +1,13 @@
 from flask import Flask, request , jsonify, render_template
 import joblib
 import nltk
-nltk.data.path.append('./nltk_data')
+import os
+nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
+
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
-
-import os
-nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
 
 
 
