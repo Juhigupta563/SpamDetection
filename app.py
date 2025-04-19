@@ -13,7 +13,7 @@ nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
 
 
 app = Flask(__name__)
-model = joblib.load('model.pkl')
+model = joblib.load('spam_model.pkl')
 vectorizer = joblib.load("vectorizer.pkl")
 
 
